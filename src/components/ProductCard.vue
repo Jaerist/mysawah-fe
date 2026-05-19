@@ -1,5 +1,4 @@
 <script setup>
-// Menerima data produk dari halaman utama (HomeView.vue)
 defineProps({
   item: {
     type: Object,
@@ -9,33 +8,24 @@ defineProps({
 </script>
 
 <template>
-  <div class="bg-white rounded-2xl p-4 shadow-sm hover:shadow-md transition-shadow duration-300 relative border border-gray-100 group cursor-pointer">
+  <div class="bg-white rounded-2xl p-4 shadow-sm relative group">
+    <div class="w-full h-48 rounded-xl overflow-hidden mb-4 bg-gray-100">
+      <img :src="item.image" :alt="item.title" class="w-full h-full object-cover group-hover:scale-105 transition-transform" />
+    </div>
     
-    <div class="w-full h-48 bg-gray-100 rounded-xl overflow-hidden mb-4">
-      <img :src="item.image" :alt="item.title" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-    </div>
-
-    <div class="space-y-1">
-      <h3 class="text-lg font-bold text-gray-900">{{ item.title }}</h3>
-      <p class="text-emerald-700 font-semibold text-lg">{{ item.price }}</p>
-    </div>
-
-    <div class="flex items-center justify-between mt-4">
-      <div class="flex items-center gap-1 text-sm font-medium text-gray-700">
-        <span class="text-yellow-400 text-lg">★</span>
-        {{ item.rating }}
-      </div>
+    <h3 class="text-gray-900 font-bold mb-1">{{ item.title }}</h3>
+    <p class="text-gray-900 font-bold mb-4">{{ item.price }}</p>
+    
+    <div class="flex items-center gap-1 text-sm font-bold text-gray-700 mb-2">
+      <span class="text-[#e2ca46]">★</span> {{ item.rating }}
       
-      <button class="border border-gray-300 text-gray-600 px-4 py-1.5 rounded-lg text-sm font-medium hover:border-emerald-600 hover:text-emerald-700 transition mr-8">
+      <button class="ml-4 border border-gray-300 px-4 py-1 rounded text-xs text-gray-600 hover:border-gray-500">
         Lihat Detail
       </button>
     </div>
 
-    <button class="absolute bottom-4 right-4 w-10 h-10 bg-[#e5db5c] hover:bg-[#d4c94b] rounded-full flex items-center justify-center shadow-md transition-colors">
-      <svg class="w-4 h-4 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-      </svg>
+    <button class="absolute bottom-4 right-4 w-8 h-8 bg-[#e2ca46] rounded-full flex items-center justify-center hover:bg-[#cbb43b] transition">
+      <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
     </button>
-    
   </div>
 </template>
